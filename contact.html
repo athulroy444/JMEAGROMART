@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact JME Agro Mart | Mannackanad Kottayam</title>
+    <meta name="description" content="Get in touch with JME Agro Mart in Mannackanad, Kottayam. Contact us via phone, email, or WhatsApp. View our location map and operating hours.">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-icon">J</div>
+                <div class="logo-text">
+                    <h1>JME AGRO MART</h1>
+                    <p>Dryer Unit & Farm Mart</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Services</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li class="active"><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-trigger" id="headerCartBtn" aria-label="Open shopping cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SHOP HERO -->
+    <section class="shop-hero" style="background-color:var(--color-bg-sage); color:var(--color-primary-dark);">
+        <div class="container">
+            <h2 style="font-family:'Outfit'; font-size:2.5rem;">Get In Touch</h2>
+            <p class="text-muted">Have a query about our dehydrated products or drying services? Reach out directly.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT CONTAINER -->
+    <main class="container">
+        <div class="contact-grid">
+            
+            <!-- Left Info Panel -->
+            <section class="contact-info-panel">
+                <div>
+                    <h3>Contact Information</h3>
+                    <p style="color:rgba(255,255,255,0.7); margin-bottom:32px; font-size:0.95rem;">You can contact Josemon Jacob or our customer support team directly via phone, email or visit us at our facility in Kottayam.</p>
+                    
+                    <ul class="contact-details-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Our Dehydration Center</h4>
+                                <p>JME Agri Dryer Unit,<br>Mannackanad P.O., Marangattupilly,<br>Kottayam, Kerala - 686586</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Call or WhatsApp Us</h4>
+                                <p>+91 94472 85144 / +91 80894 48995</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>contact@jmeagromart.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Monday to Saturday: 8:00 AM — 5:00 PM<br>Sunday: Closed</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- WhatsApp Quick Chat CTA -->
+                <div style="margin-top: 32px; border-top:1px solid rgba(255,255,255,0.15); padding-top:24px;">
+                    <a href="https://wa.me/919447285144?text=Hello%20JME%20Agro%20Mart,%20I%20have%20an%20enquiry..." target="_blank" class="btn btn-whatsapp" style="width:100%;">
+                        <i class="fab fa-whatsapp"></i> Chat Live on WhatsApp
+                    </a>
+                </div>
+            </section>
+
+            <!-- Right Contact Form -->
+            <section style="background-color: var(--color-surface); padding: 40px; border-radius: var(--radius-lg); border:1px solid var(--color-border); box-shadow:var(--shadow-sm);">
+                <h3 style="font-family:'Outfit'; font-size:1.5rem; margin-bottom:12px;">Send Us a Message</h3>
+                <p class="text-muted" style="font-size:0.9rem; margin-bottom:24px;">Fill out this form and we will revert back within 24 hours.</p>
+                
+                <form id="contactForm" style="display:flex; flex-direction:column; gap:20px;">
+                    <div class="form-group">
+                        <label for="contactName">Full Name</label>
+                        <input type="text" id="contactName" placeholder="Enter full name" required>
+                    </div>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" placeholder="name@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="tel" id="contactPhone" placeholder="10-digit number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject">Subject</label>
+                        <input type="text" id="contactSubject" placeholder="How can we help you?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMsg">Your Message</label>
+                        <textarea id="contactMsg" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Send Message
+                    </button>
+                </form>
+            </section>
+
+        </div>
+
+        <!-- GOOGLE MAPS EMBED -->
+        <div class="map-placeholder">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.3275841029193!2d76.59103297593166!3d9.730076878207908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07d6a5ab51bf41%3A0x6b30f5b9d564fa7e!2sMannackanad%2C%20Kerala%20686586!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="JME Dryer Location Map in Mannackanad Kottayam"></iframe>
+        </div>
+    </main>
+
+    <!-- GLOBAL SLIDING CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fas fa-shopping-basket"></i> Your Basket</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close basket"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-drawer-items" id="cartDrawerItems">
+            <!-- Dynamically populated -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Subtotal:</span>
+                <span id="cartDrawerSubtotal">₹0</span>
+            </div>
+            <div class="cart-checkout-actions">
+                <a href="cart.html" class="btn btn-secondary" style="width:100%;">View Basket Details</a>
+                <a href="checkout.html" class="btn btn-primary" style="width:100%;">Proceed to Purchase</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-widget">
+                <div class="logo-link" style="margin-bottom: 20px;">
+                    <div class="logo-icon" style="background:#fff; color:var(--color-primary);">J</div>
+                    <div class="logo-text">
+                        <h3 style="color:#fff; font-size: 1.2rem;">JME AGRO MART</h3>
+                        <p style="color:var(--color-accent-light);">Dryer Unit & Farm Mart</p>
+                    </div>
+                </div>
+                <p>Sustainable value-added processing and agricultural preservation from Mannackanad, Kottayam, Kerala. Helping farmers prevent decay since 2020.</p>
+            </div>
+            <div class="footer-widget">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Dehydration Services</a></li>
+                    <li><a href="about.html">Josemon Jacob Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Organic Range</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Dried Bitter Gourd</a></li>
+                    <li><a href="shop.html">Kanthari Mulaku</a></li>
+                    <li><a href="shop.html">Dehydrated Jackfruit</a></li>
+                    <li><a href="shop.html">Dryer Copra</a></li>
+                    <li><a href="shop.html">Cardamom & Spices</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Contact Unit</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mannackanad P.O., Marangattupilly,<br>Kottayam, Kerala - 686586</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 94472 85144 / +91 80894 48995</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@jmeagromart.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 JME Agro Mart. All rights reserved. Designed for Premium Agricultural Excellence.</p>
+            <div style="display:flex; gap:16px;">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

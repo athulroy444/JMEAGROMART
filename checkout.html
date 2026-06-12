@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | JME Agro Mart</title>
+    <meta name="description" content="Securely place your order at JME Agro Mart. Pay via credit/debit card, UPI, or directly finalize your order through WhatsApp.">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-icon">J</div>
+                <div class="logo-text">
+                    <h1>JME AGRO MART</h1>
+                    <p>Dryer Unit & Farm Mart</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Services</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-trigger" id="headerCartBtn" aria-label="Open shopping cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECURE HEADER BAR -->
+    <div style="background-color: var(--color-primary-dark); color: #fff; padding: 10px 0; font-size: 0.85rem; text-align: center;">
+        <i class="fas fa-lock text-accent"></i> Secure 256-Bit SSL Checkout Environment. Your transaction is encrypted.
+    </div>
+
+    <!-- MAIN CHECKOUT AREA -->
+    <main class="container">
+        
+        <!-- Breadcrumbs -->
+        <div style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+            <a href="index.html">Home</a> &nbsp;/&nbsp; <a href="cart.html">Basket</a> &nbsp;/&nbsp; <span class="text-accent" style="font-weight: 500;">Checkout</span>
+        </div>
+
+        <form id="checkoutDetailsForm">
+            <div class="checkout-layout">
+                
+                <!-- Left Column: Forms -->
+                <section>
+                    <!-- Shipping Address Section -->
+                    <div class="checkout-section">
+                        <h3><i class="fas fa-shipping-fast text-accent"></i> 1. Shipping Address Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="checkoutName">Full Customer Name</label>
+                                <input type="text" id="checkoutName" placeholder="Enter full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkoutPhone">Phone / WhatsApp Number</label>
+                                <input type="tel" id="checkoutPhone" placeholder="10-digit number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkoutEmail">Email Address</label>
+                                <input type="email" id="checkoutEmail" placeholder="name@email.com" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="checkoutAddress">Delivery Address</label>
+                                <input type="text" id="checkoutAddress" placeholder="House, Street name, Locality" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkoutCity">City / Town</label>
+                                <input type="text" id="checkoutCity" placeholder="Kottayam" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkoutZip">Postal Pincode</label>
+                                <input type="text" id="checkoutZip" placeholder="686586" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Details Section -->
+                    <div class="checkout-section">
+                        <h3><i class="fas fa-wallet text-accent"></i> 2. Choose Payment Method</h3>
+                        
+                        <!-- Toggle Buttons -->
+                        <div class="payment-toggle-grid">
+                            <div class="payment-toggle-card active" id="toggleCard">
+                                <input type="radio" name="paymentMethod" id="paymentMethodRadioCard" value="card" checked>
+                                <i class="fas fa-credit-card"></i>
+                                <div>
+                                    <strong style="display:block; font-size:0.95rem;">Credit/Debit Card</strong>
+                                    <span style="font-size:0.75rem; color:var(--color-text-muted);">Instant Online Authorization</span>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-toggle-card" id="toggleCod">
+                                <input type="radio" name="paymentMethod" id="paymentMethodRadioCod" value="whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <strong style="display:block; font-size:0.95rem;">WhatsApp Order</strong>
+                                    <span style="font-size:0.75rem; color:var(--color-text-muted);">Checkout & Pay via chat</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card payment input forms & card preview -->
+                        <div id="creditCardFields">
+                            <!-- Visual Card Mockup -->
+                            <div class="card-preview-wrapper">
+                                <div class="card-preview-chip"></div>
+                                <div class="card-preview-num" id="previewCardNum">•••• •••• •••• ••••</div>
+                                <div class="card-preview-bottom">
+                                    <div>
+                                        <div class="card-preview-label">Card Holder</div>
+                                        <div class="card-preview-val" id="previewCardName">CARDHOLDER NAME</div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div class="card-preview-label">Expires</div>
+                                        <div class="card-preview-val" id="previewCardExp">MM/YY</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label for="ccNum">Card Number</label>
+                                    <input type="text" id="ccNum" placeholder="4111 2222 3333 4444" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="ccName">Cardholder Name</label>
+                                    <input type="text" id="ccName" placeholder="JOHN DOE" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccExp">Expiry Date</label>
+                                    <input type="text" id="ccExp" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ccCvv">Security CVV</label>
+                                    <input type="password" id="ccCvv" maxlength="3" placeholder="123" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Summary block for WhatsApp method -->
+                        <div id="whatsappSummaryNote" style="display: none; background:var(--color-bg-sage); padding:16px; border-radius:var(--radius-md); border:1px dashed var(--color-primary-light); font-size:0.9rem; color:var(--color-text-muted);">
+                            <p><strong style="color:var(--color-primary-dark);"><i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Order Checkout:</strong></p>
+                            <p style="margin-top:6px;">Upon submitting, the system will construct your purchase order slip and open a chat with Josemon Jacob's JME Agro Mart team. You can coordinate custom shipping details and pay via GPay/PhonePe or Bank Transfer directly.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Right Column: Cart Summaries -->
+                <section>
+                    <div class="summary-card">
+                        <h3>Cart Overview</h3>
+                        <div id="checkoutSummaryItems" style="margin-bottom: 24px;">
+                            <!-- Populated dynamically -->
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="checkoutSubtotal">₹0</span>
+                        </div>
+                        <div class="summary-row" id="checkoutDiscountRow" style="display:none;">
+                            <span>Discount</span>
+                            <span id="checkoutDiscount" class="text-accent">-₹0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping Fee</span>
+                            <span id="checkoutShipping">₹0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>GST (5% tax)</span>
+                            <span id="checkoutTax">₹0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Grand Total</span>
+                            <span id="checkoutTotal">₹0</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 24px;">
+                            <i class="fas fa-lock"></i> Authorize & Place Order
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </form>
+    </main>
+
+    <!-- OTP Bank gateway verification overlay modal -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-box" id="otpBoxContainer">
+            <!-- Dynamically populated step animations -->
+        </div>
+    </div>
+
+    <!-- GLOBAL SLIDING CART DRAWER (though usually closed here) -->
+    <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fas fa-shopping-basket"></i> Your Basket</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close basket"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-drawer-items" id="cartDrawerItems">
+            <!-- Dynamically populated -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Subtotal:</span>
+                <span id="cartDrawerSubtotal">₹0</span>
+            </div>
+            <div class="cart-checkout-actions">
+                <a href="cart.html" class="btn btn-secondary" style="width:100%;">View Basket Details</a>
+                <a href="checkout.html" class="btn btn-primary" style="width:100%;">Proceed to Purchase</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-widget">
+                <div class="logo-link" style="margin-bottom: 20px;">
+                    <div class="logo-icon" style="background:#fff; color:var(--color-primary);">J</div>
+                    <div class="logo-text">
+                        <h3 style="color:#fff; font-size: 1.2rem;">JME AGRO MART</h3>
+                        <p style="color:var(--color-accent-light);">Dryer Unit & Farm Mart</p>
+                    </div>
+                </div>
+                <p>Sustainable value-added processing and agricultural preservation from Mannackanad, Kottayam, Kerala. Helping farmers prevent decay since 2020.</p>
+            </div>
+            <div class="footer-widget">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Dehydration Services</a></li>
+                    <li><a href="about.html">Josemon Jacob Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Organic Range</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Dried Bitter Gourd</a></li>
+                    <li><a href="shop.html">Kanthari Mulaku</a></li>
+                    <li><a href="shop.html">Dehydrated Jackfruit</a></li>
+                    <li><a href="shop.html">Dryer Copra</a></li>
+                    <li><a href="shop.html">Cardamom & Spices</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Contact Unit</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mannackanad P.O., Marangattupilly,<br>Kottayam, Kerala - 686586</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 94472 85144 / +91 80894 48995</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@jmeagromart.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 JME Agro Mart. All rights reserved. Designed for Premium Agricultural Excellence.</p>
+            <div style="display:flex; gap:16px;">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const method = params.get("method");
+            
+            const cardFields = document.getElementById("creditCardFields");
+            const whatsappNote = document.getElementById("whatsappSummaryNote");
+            
+            const ccNumInput = document.getElementById("ccNum");
+            const ccNameInput = document.getElementById("ccName");
+            const ccExpInput = document.getElementById("ccExp");
+            const ccCvvInput = document.getElementById("ccCvv");
+            
+            // Function to enable/disable required attributes
+            const setCardInputsRequired = (required) => {
+                if (ccNumInput) ccNumInput.required = required;
+                if (ccNameInput) ccNameInput.required = required;
+                if (ccExpInput) ccExpInput.required = required;
+                if (ccCvvInput) ccCvvInput.required = required;
+            };
+
+            const toggleToWhatsApp = () => {
+                document.querySelectorAll(".payment-toggle-card").forEach(c => c.classList.remove("active"));
+                document.getElementById("toggleCod").classList.add("active");
+                document.getElementById("paymentMethodRadioCod").checked = true;
+                
+                if (cardFields) cardFields.style.display = "none";
+                if (whatsappNote) whatsappNote.style.display = "block";
+                setCardInputsRequired(false);
+            };
+
+            const toggleToCard = () => {
+                document.querySelectorAll(".payment-toggle-card").forEach(c => c.classList.remove("active"));
+                document.getElementById("toggleCard").classList.add("active");
+                document.getElementById("paymentMethodRadioCard").checked = true;
+                
+                if (cardFields) cardFields.style.display = "block";
+                if (whatsappNote) whatsappNote.style.display = "none";
+                setCardInputsRequired(true);
+            };
+
+            // Initial trigger from URL param
+            if (method === "whatsapp") {
+                toggleToWhatsApp();
+            } else {
+                toggleToCard();
+            }
+            
+            // Wire listeners to toggle cards
+            const tCard = document.getElementById("toggleCard");
+            const tCod = document.getElementById("toggleCod");
+            
+            if (tCard) tCard.addEventListener("click", toggleToCard);
+            if (tCod) tCod.addEventListener("click", toggleToWhatsApp);
+        });
+    </script>
+</body>
+</html>

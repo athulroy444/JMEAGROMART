@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Organic Dehydrated Foods | JME Agro Mart</title>
+    <meta name="description" content="Browse our catalog of natural dehydrated bitter gourd, Kanthari chilli, jackfruit slices, nutmeg, and clean dryer-grade copra. Free shipping above ₹500.">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-icon">J</div>
+                <div class="logo-text">
+                    <h1>JME AGRO MART</h1>
+                    <p>Dryer Unit & Farm Mart</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Services</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-trigger" id="headerCartBtn" aria-label="Open shopping cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SHOP HERO -->
+    <section class="shop-hero">
+        <div class="container">
+            <h2>JME Agromart Store</h2>
+            <p>100% pure, sulfur-free, and nutrient-dense products. Free home delivery above ₹500.</p>
+        </div>
+    </section>
+
+    <!-- SHOP CATALOG LAYOUT -->
+    <main class="container">
+        <div class="shop-layout">
+            
+            <!-- Sidebar Filters -->
+            <aside class="shop-sidebar">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul class="filter-list">
+                        <li>
+                            <button class="filter-btn active" data-category="all">
+                                <span>All Products</span>
+                                <span class="filter-count">6</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="filter-btn" data-category="dried-vegetables">
+                                <span>Dried Vegetables</span>
+                                <span class="filter-count">3</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="filter-btn" data-category="dehydrated-fruits">
+                                <span>Dehydrated Fruits</span>
+                                <span class="filter-count">1</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="filter-btn" data-category="spices-powders">
+                                <span>Spices & Powders</span>
+                                <span class="filter-count">1</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="filter-btn" data-category="farmer-services">
+                                <span>Farmer Services</span>
+                                <span class="filter-count">1</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Why Buy Dehydrated?</h3>
+                    <p style="font-size:0.85rem; color:var(--color-text-muted); line-height:1.5;">Dehydrated foods retain up to 97% of vitamins and minerals. Simply rehydrate in warm water for 15 minutes to use. Zero chemicals, sulfur, or additives.</p>
+                </div>
+            </aside>
+            
+            <!-- Main Products Grid Area -->
+            <section>
+                <!-- Controls Row -->
+                <div class="shop-header">
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="shopSearch" placeholder="Search products...">
+                    </div>
+                    
+                    <div class="sort-select-wrapper">
+                        <label for="shopSort" style="font-size:0.9rem; font-weight:600; color:var(--color-text-muted);">Sort By:</label>
+                        <select id="shopSort">
+                            <option value="default">Default Sorting</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Average Rating</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Product Cards Grid -->
+                <div class="product-grid" id="shopProductGrid">
+                    <!-- Dynamically populated by main.js renderCatalog() -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- GLOBAL SLIDING CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fas fa-shopping-basket"></i> Your Basket</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close basket"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-drawer-items" id="cartDrawerItems">
+            <!-- Dynamically populated -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Subtotal:</span>
+                <span id="cartDrawerSubtotal">₹0</span>
+            </div>
+            <div class="cart-checkout-actions">
+                <a href="cart.html" class="btn btn-secondary" style="width:100%;">View Basket Details</a>
+                <a href="checkout.html" class="btn btn-primary" style="width:100%;">Proceed to Purchase</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-widget">
+                <div class="logo-link" style="margin-bottom: 20px;">
+                    <div class="logo-icon" style="background:#fff; color:var(--color-primary);">J</div>
+                    <div class="logo-text">
+                        <h3 style="color:#fff; font-size: 1.2rem;">JME AGRO MART</h3>
+                        <p style="color:var(--color-accent-light);">Dryer Unit & Farm Mart</p>
+                    </div>
+                </div>
+                <p>Sustainable value-added processing and agricultural preservation from Mannackanad, Kottayam, Kerala. Helping farmers prevent decay since 2020.</p>
+            </div>
+            <div class="footer-widget">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Dehydration Services</a></li>
+                    <li><a href="about.html">Josemon Jacob Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Organic Range</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Dried Bitter Gourd</a></li>
+                    <li><a href="shop.html">Kanthari Mulaku</a></li>
+                    <li><a href="shop.html">Dehydrated Jackfruit</a></li>
+                    <li><a href="shop.html">Dryer Copra</a></li>
+                    <li><a href="shop.html">Cardamom & Spices</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Contact Unit</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mannackanad P.O., Marangattupilly,<br>Kottayam, Kerala - 686586</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 94472 85144 / +91 80894 48995</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@jmeagromart.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 JME Agro Mart. All rights reserved. Designed for Premium Agricultural Excellence.</p>
+            <div style="display:flex; gap:16px;">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

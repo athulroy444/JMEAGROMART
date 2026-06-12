@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | JME Agro Mart</title>
+    <meta name="description" content="Detailed information on organic dehydrated farm produce by JME Agro Mart. Check out health benefits, specifications, reviews, and bulk enquiry options.">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-icon">J</div>
+                <div class="logo-text">
+                    <h1>JME AGRO MART</h1>
+                    <p>Dryer Unit & Farm Mart</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Services</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-trigger" id="headerCartBtn" aria-label="Open shopping cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN PRODUCT DETAILS AREA -->
+    <main class="container">
+        
+        <!-- Breadcrumbs -->
+        <div style="font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+            <a href="index.html">Home</a> &nbsp;/&nbsp; <a href="shop.html">Shop</a> &nbsp;/&nbsp; <span id="breadcrumbTitle" class="text-accent" style="font-weight: 500;">Product Detail</span>
+        </div>
+
+        <div class="product-detail-layout">
+            
+            <!-- Left Column: Gallery -->
+            <section class="product-gallery">
+                <div class="main-img-box">
+                    <img id="detailMainImg" src="assets/images/dried_bitter_gourd.png" alt="Featured Product Image">
+                </div>
+                <div class="gallery-thumbs" id="detailThumbs">
+                    <!-- Javascript will render thumbs -->
+                </div>
+            </section>
+            
+            <!-- Right Column: Info & Buy -->
+            <section class="detail-info-box">
+                <div style="margin-bottom: 12px;">
+                    <span id="detailBadge" class="badge badge-organic">Bestseller</span>
+                </div>
+                <span id="detailCategory" class="product-category" style="font-size:0.85rem;">Dried Vegetables</span>
+                <h2 id="detailTitle" style="margin-bottom:8px; font-family:'Outfit';">Dried Bitter Gourd</h2>
+                
+                <div class="product-rating" id="detailRating" style="margin-bottom:20px;">
+                    <!-- Stars loaded dynamically -->
+                </div>
+                
+                <div class="detail-price" id="detailPrice">
+                    ₹0
+                </div>
+                
+                <p class="detail-desc" id="detailDesc">
+                    Details loading...
+                </p>
+                
+                <table class="detail-specs-table">
+                    <tr>
+                        <td>Origin:</td>
+                        <td id="specOrigin">Kottayam, Kerala</td>
+                    </tr>
+                    <tr>
+                        <td>Shelf Life:</td>
+                        <td id="specLife">12 Months</td>
+                    </tr>
+                    <tr>
+                        <td>Package:</td>
+                        <td id="specPack">100g Sealed Pouches</td>
+                    </tr>
+                    <tr>
+                        <td>Ingredients:</td>
+                        <td id="specIngredients">100% Dehydrated Bitter Gourd</td>
+                    </tr>
+                </table>
+                
+                <div class="action-row">
+                    <div class="qty-selector">
+                        <button class="qty-select-btn" id="detailDecQty">-</button>
+                        <input type="text" class="qty-input" id="detailQtyVal" value="1" readonly>
+                        <button class="qty-select-btn" id="detailIncQty">+</button>
+                    </div>
+                    <button class="btn btn-primary" id="detailAddToCart" style="flex-grow: 1;">
+                        <i class="fas fa-shopping-cart"></i> Add to Shopping Basket
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- TABS PANELS (DESCRIPTION & ADVANTAGES) -->
+        <section class="product-tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="tabDesc">Product Description</button>
+                <button class="tab-btn" data-tab="tabBenefits">Dehydration Benefits</button>
+                <button class="tab-btn" data-tab="tabReviews">Customer Reviews (3)</button>
+            </div>
+            
+            <!-- Tab Content 1: Description -->
+            <div class="tab-content active" id="tabDesc">
+                <p id="tabDescText" style="color:var(--color-text-muted); max-width:900px;"></p>
+                <p style="color:var(--color-text-muted); max-width:900px; margin-top:16px;">Our crops are sourced from local farms in Mannackanad and Marangattupilly in Kottayam. By utilizing industrial heat-pump dryers, we reduce moisture contents to optimal levels. Unlike traditional sun-drying, artificial air dehydration preserves vitamins, stops pest contact, and guarantees high sanitation.</p>
+            </div>
+            
+            <!-- Tab Content 2: Benefits -->
+            <div class="tab-content" id="tabBenefits">
+                <div id="tabBenefitsText"></div>
+            </div>
+            
+            <!-- Tab Content 3: Reviews -->
+            <div class="tab-content" id="tabReviews">
+                <div style="display:flex; flex-direction:column; gap:20px;">
+                    <div style="border-bottom:1px solid #eee; padding-bottom:15px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                            <strong style="color:var(--color-primary-dark);">Anish K. (Kottayam)</strong>
+                            <span style="font-size:0.8rem; color:var(--color-text-muted);">14 days ago</span>
+                        </div>
+                        <div style="color:#ffb300; font-size:0.8rem; margin-bottom:6px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-size:0.9rem; color:var(--color-text-muted);">Extremely high quality! The color of the bitter gourd is light green and looks fresh. Tastes exactly like farm fresh bitter gourd when cooked in pulissery.</p>
+                    </div>
+                    <div style="border-bottom:1px solid #eee; padding-bottom:15px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                            <strong style="color:var(--color-primary-dark);">Merlin Joseph (Kochi)</strong>
+                            <span style="font-size:0.8rem; color:var(--color-text-muted);">1 month ago</span>
+                        </div>
+                        <div style="color:#ffb300; font-size:0.8rem; margin-bottom:6px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p style="font-size:0.9rem; color:var(--color-text-muted);">I bought Kanthari Chilli and Jackfruit slices. The chilli is so spicy and the dried jackfruit was awesome for making puzhukku. Will order again.</p>
+                    </div>
+                    <div>
+                        <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
+                            <strong style="color:var(--color-primary-dark);">Raman Namboothiri (Marangattupilly)</strong>
+                            <span style="font-size:0.8rem; color:var(--color-text-muted);">2 months ago</span>
+                        </div>
+                        <div style="color:#ffb300; font-size:0.8rem; margin-bottom:6px;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                        <p style="font-size:0.9rem; color:var(--color-text-muted);">Standard packing and clean. Great to see value added products from Josemon. Supporting local farmers!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHOLESALE / ENQUIRY SECTION -->
+        <section style="margin-top: 5rem;">
+            <div class="detail-enquiry-card">
+                <div class="enquiry-layout" style="align-items:center;">
+                    <div>
+                        <h3><i class="fas fa-boxes"></i> Wholesale & Export Enquiry</h3>
+                        <p class="text-muted" style="font-size:0.95rem; line-height:1.6;">Are you an exporter, hotel owner, or retailer looking for high volumes of dehydrated vegetables or spices? JME Agro Mart provides customized packing and discounted bulk prices.</p>
+                        <ul style="margin-top: 15px; font-size: 0.9rem; display:flex; flex-direction:column; gap:8px; list-style:none;">
+                            <li><i class="fas fa-check text-accent"></i> Bulk orders starting from 10 Kg up to 1 Ton</li>
+                            <li><i class="fas fa-check text-accent"></i> Customized packaging sizes (50g to 5kg sacks)</li>
+                            <li><i class="fas fa-check text-accent"></i> State-wide and national shipping networks</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <form id="generalEnquiryForm" style="display:flex; flex-direction:column; gap:16px; background:#fff; padding:24px; border-radius:var(--radius-md); box-shadow:var(--shadow-sm);">
+                            <div class="form-group">
+                                <label for="queryName">Your Name</label>
+                                <input type="text" id="queryName" placeholder="Enter full name" required>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="queryEmail">Email Address</label>
+                                    <input type="email" id="queryEmail" placeholder="name@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="queryPhone">Phone / WhatsApp</label>
+                                    <input type="tel" id="queryPhone" placeholder="10-digit number" required>
+                                </div>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="queryProduct">Selected Product</label>
+                                    <input type="text" id="queryProduct" readonly style="background-color:#f5f5f5;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="queryQty">Estimated Quantity Required</label>
+                                    <select id="queryQty" required>
+                                        <option value="5-10kg">5 - 10 Kg (Mini Wholesale)</option>
+                                        <option value="10-50kg">10 - 50 Kg</option>
+                                        <option value="50-100kg">50 - 100 Kg</option>
+                                        <option value="100kg-plus">Above 100 Kg (Commercial)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="queryMsg">Your Message / Custom Request</label>
+                                <textarea id="queryMsg" rows="3" placeholder="Provide details about your packaging or shipping needs..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Wholesale Enquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- GLOBAL SLIDING CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fas fa-shopping-basket"></i> Your Basket</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close basket"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-drawer-items" id="cartDrawerItems">
+            <!-- Dynamically populated -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Subtotal:</span>
+                <span id="cartDrawerSubtotal">₹0</span>
+            </div>
+            <div class="cart-checkout-actions">
+                <a href="cart.html" class="btn btn-secondary" style="width:100%;">View Basket Details</a>
+                <a href="checkout.html" class="btn btn-primary" style="width:100%;">Proceed to Purchase</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-widget">
+                <div class="logo-link" style="margin-bottom: 20px;">
+                    <div class="logo-icon" style="background:#fff; color:var(--color-primary);">J</div>
+                    <div class="logo-text">
+                        <h3 style="color:#fff; font-size: 1.2rem;">JME AGRO MART</h3>
+                        <p style="color:var(--color-accent-light);">Dryer Unit & Farm Mart</p>
+                    </div>
+                </div>
+                <p>Sustainable value-added processing and agricultural preservation from Mannackanad, Kottayam, Kerala. Helping farmers prevent decay since 2020.</p>
+            </div>
+            <div class="footer-widget">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Dehydration Services</a></li>
+                    <li><a href="about.html">Josemon Jacob Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Organic Range</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Dried Bitter Gourd</a></li>
+                    <li><a href="shop.html">Kanthari Mulaku</a></li>
+                    <li><a href="shop.html">Dehydrated Jackfruit</a></li>
+                    <li><a href="shop.html">Dryer Copra</a></li>
+                    <li><a href="shop.html">Cardamom & Spices</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Contact Unit</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mannackanad P.O., Marangattupilly,<br>Kottayam, Kerala - 686586</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 94472 85144 / +91 80894 48995</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@jmeagromart.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 JME Agro Mart. All rights reserved. Designed for Premium Agricultural Excellence.</p>
+            <div style="display:flex; gap:16px;">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

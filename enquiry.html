@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Dryer Services & Bulk Enquiries | JME Agro Mart</title>
+    <meta name="description" content="Calculate agricultural crop drying fees for Copra, Nutmeg, and Cocoa in Kottayam. Book solar-dryer batches and ask for custom wholesale rates.">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo-link">
+                <div class="logo-icon">J</div>
+                <div class="logo-text">
+                    <h1>JME AGRO MART</h1>
+                    <p>Dryer Unit & Farm Mart</p>
+                </div>
+            </a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li class="active"><a href="enquiry.html">Farmer Services</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <a href="#" class="cart-trigger" id="headerCartBtn" aria-label="Open shopping cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SHOP HERO -->
+    <section class="shop-hero" style="background-color: var(--color-primary-dark); color: #fff;">
+        <div class="container">
+            <h2 style="color:#fff; font-family:'Outfit';">Farmer Dryer Services</h2>
+            <p>Calculate crop processing costs, check dryer batch times, and book your slots online.</p>
+        </div>
+    </section>
+
+    <!-- ENQUIRY & CALCULATOR LAYOUT -->
+    <main class="container">
+        <div class="enquiry-layout">
+            
+            <!-- Left Side: Drying Calculator -->
+            <section class="calculator-card">
+                <div class="calc-icon"><i class="fas fa-calculator"></i></div>
+                <h3 style="font-family:'Outfit'; font-size:1.5rem; margin-bottom:12px;">Drying Fee & Time Calculator</h3>
+                <p class="text-muted" style="font-size:0.9rem; margin-bottom:24px;">Enter your crop type and estimated weight to calculate the processing rate, drying hours, and potential subsidies.</p>
+                
+                <form id="dryerCalculatorForm">
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="calcCrop">Select Crop Type</label>
+                        <select id="calcCrop" required>
+                            <option value="" disabled selected>Choose a crop...</option>
+                            <option value="copra">Copra / Coconut halves (₹12/Kg)</option>
+                            <option value="nutmeg">Nutmeg & Nutmeg Mace (₹15/Kg)</option>
+                            <option value="cocoa">Cocoa Beans fermentation & drying (₹18/Kg)</option>
+                            <option value="chillies">Birds Eye Chilli / Spices (₹25/Kg)</option>
+                            <option value="vegetables">Bitter Gourd / Ivy Gourd (₹20/Kg)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" style="margin-bottom: 24px;">
+                        <label for="calcWeight">Total Weight of Harvest (in Kilograms)</label>
+                        <input type="number" id="calcWeight" min="50" max="2500" placeholder="Minimum batch size 50 Kg" required>
+                        <span style="font-size:0.75rem; color:var(--color-text-muted); margin-top:4px;">(Max single batch limit: 2,500 Kg)</span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Calculate Processing Fee
+                    </button>
+                </form>
+
+                <!-- Calculation Results Box -->
+                <div class="calc-result-box" id="calcResults">
+                    <h4 style="font-family:'Outfit'; margin-bottom:16px; color:var(--color-primary-dark);"><i class="fas fa-receipt text-accent"></i> Estimation Breakdown</h4>
+                    
+                    <div class="calc-result-row">
+                        <span>Base Rate:</span>
+                        <strong id="resRate">₹0 / Kg</strong>
+                    </div>
+                    <div class="calc-result-row">
+                        <span>Estimated Dehydration Time:</span>
+                        <strong id="resTime">~ 0 Hours</strong>
+                    </div>
+                    <div class="calc-result-row">
+                        <span>Subtotal Processing Fee:</span>
+                        <strong id="resSubtotal">₹0</strong>
+                    </div>
+                    <div class="calc-result-row text-accent">
+                        <span>Agricultural Value Addition Subsidy:</span>
+                        <strong id="resSubsidy">-₹0 (10%)</strong>
+                    </div>
+                    <div class="calc-result-row total">
+                        <span>Estimated Total Fee:</span>
+                        <strong id="resTotal">₹0</strong>
+                    </div>
+                    
+                    <div style="margin-top: 24px; display:flex; flex-direction:column; gap:10px;">
+                        <button type="button" id="submitDryerBooking" class="btn btn-accent" style="width:100%;">
+                            Submit Dryer Slot Reservation
+                        </button>
+                        <p style="font-size:0.75rem; color:var(--color-text-muted); text-align:center;">Our operator will contact you within 2 hours to coordinate delivery details.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Wholesale Inquiry -->
+            <section style="background-color: var(--color-surface); padding: 36px; border:1px solid var(--color-border); border-radius:var(--radius-lg);">
+                <div class="calc-icon" style="color:var(--color-primary-light);"><i class="fas fa-truck-moving"></i></div>
+                <h3 style="font-family:'Outfit'; font-size:1.5rem; margin-bottom:12px;">General Wholesale & Export Inquiry</h3>
+                <p class="text-muted" style="font-size:0.9rem; margin-bottom:24px;">Do you need customized bulk quantities of dehydrated Bitter Gourd, Chillies, or Spices? Contact our sales desk for special price brackets.</p>
+                
+                <form id="generalEnquiryForm" style="display:flex; flex-direction:column; gap:16px;">
+                    <div class="form-group">
+                        <label for="queryName">Your Name / Organization</label>
+                        <input type="text" id="queryName" placeholder="Enter name" required>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="queryEmail">Email Address</label>
+                            <input type="email" id="queryEmail" placeholder="name@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="queryPhone">Phone Number</label>
+                            <input type="tel" id="queryPhone" placeholder="Mobile / WhatsApp" required>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="queryProduct">Selected Product</label>
+                            <select id="queryProduct" required>
+                                <option value="" disabled selected>Choose a product...</option>
+                                <option value="Dried Bitter Gourd">Dried Bitter Gourd (Pavakka)</option>
+                                <option value="Birds Eye Chilli">Birds Eye Chilli (Kanthari)</option>
+                                <option value="Dehydrated Jackfruit">Dehydrated Jackfruit Slices</option>
+                                <option value="Nutmeg Mace">Dried Nutmeg & Mace</option>
+                                <option value="Premium Copra">Premium Dryer Copra</option>
+                                <option value="Wholesale Assortment">Mixed wholesale order</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="queryQty">Estimated Quantity</label>
+                            <select id="queryQty" required>
+                                <option value="" disabled selected>Choose volume...</option>
+                                <option value="5-10kg">5 - 10 Kg (Mini Wholesale)</option>
+                                <option value="10-50kg">10 - 50 Kg</option>
+                                <option value="50-100kg">50 - 100 Kg</option>
+                                <option value="100kg-plus">Above 100 Kg (Commercial)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="queryMsg">Details of Packaging / Requirements</label>
+                        <textarea id="queryMsg" rows="4" placeholder="Detail any custom package sizes, delivery locations, or specific parameters..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-secondary" style="width:100%;">
+                        Submit Bulk Inquiry
+                    </button>
+                </form>
+            </section>
+        </div>
+
+        <!-- FAQ ACCORDION -->
+        <section class="faq-accordion">
+            <div class="section-title text-center" style="margin-bottom: 2.5rem;">
+                <h2>Processing & Booking FAQs</h2>
+                <p class="text-muted">Frequently asked questions by local farmers and merchants</p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>How do I bring my crop harvest to the JME Agro dryer unit?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-panel">
+                        <p>You can schedule a delivery slot using our online booking tool. Once confirmed, you can drop off your fresh crop directly at our unit in Mannackanad P.O., near Marangattupilly, Kottayam. We also coordinate pickup trucks for batches larger than 500kg.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>What is the minimum batch size requirement for custom drying?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-panel">
+                        <p>Since JME operates large-capacity commercial crop dryers, the minimum batch weight we accept is 50 Kilograms. This allows us to maintain efficient energy usage and keep costs low for everyone.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>What does the 10% PMEGP agricultural subsidy mean?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-panel">
+                        <p>To promote rural entrepreneurship and agricultural value addition, the government provides financial subsidies under the Prime Minister's Employment Generation Programme (PMEGP). We pass a 10% discount on drying services directly back to small farm owners to encourage local preservation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>How does the artificial dehydration process compare to sun-drying?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-panel">
+                        <p>Traditional sun-drying exposes crops to dust, insects, bird droppings, and damp weather, leading to fungus (molds) and nutrition degradation. JME's controlled closed-chamber dryers use dust-filtered hot air to dehydrate produce quickly, preserving natural color, vitamins, flavor, and ensuring 100% hygiene.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- GLOBAL SLIDING CART DRAWER -->
+    <div class="cart-drawer-overlay" id="cartDrawerOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fas fa-shopping-basket"></i> Your Basket</h3>
+            <button class="cart-close-btn" id="cartCloseBtn" aria-label="Close basket"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-drawer-items" id="cartDrawerItems">
+            <!-- Dynamically populated -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>Subtotal:</span>
+                <span id="cartDrawerSubtotal">₹0</span>
+            </div>
+            <div class="cart-checkout-actions">
+                <a href="cart.html" class="btn btn-secondary" style="width:100%;">View Basket Details</a>
+                <a href="checkout.html" class="btn btn-primary" style="width:100%;">Proceed to Purchase</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-widget">
+                <div class="logo-link" style="margin-bottom: 20px;">
+                    <div class="logo-icon" style="background:#fff; color:var(--color-primary);">J</div>
+                    <div class="logo-text">
+                        <h3 style="color:#fff; font-size: 1.2rem;">JME AGRO MART</h3>
+                        <p style="color:var(--color-accent-light);">Dryer Unit & Farm Mart</p>
+                    </div>
+                </div>
+                <p>Sustainable value-added processing and agricultural preservation from Mannackanad, Kottayam, Kerala. Helping farmers prevent decay since 2020.</p>
+            </div>
+            <div class="footer-widget">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop Products</a></li>
+                    <li><a href="enquiry.html">Farmer Dehydration Services</a></li>
+                    <li><a href="about.html">Josemon Jacob Story</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Organic Range</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">Dried Bitter Gourd</a></li>
+                    <li><a href="shop.html">Kanthari Mulaku</a></li>
+                    <li><a href="shop.html">Dehydrated Jackfruit</a></li>
+                    <li><a href="shop.html">Dryer Copra</a></li>
+                    <li><a href="shop.html">Cardamom & Spices</a></li>
+                </ul>
+            </div>
+            <div class="footer-widget">
+                <h4>Contact Unit</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mannackanad P.O., Marangattupilly,<br>Kottayam, Kerala - 686586</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91 94472 85144 / +91 80894 48995</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>contact@jmeagromart.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 JME Agro Mart. All rights reserved. Designed for Premium Agricultural Excellence.</p>
+            <div style="display:flex; gap:16px;">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
